@@ -60,6 +60,14 @@ jobs:
                 cache: true
             - name: Instalacion de dependencias
               run: flutter pub get
+            - name: construccion web
+              run: flutter build web --release
+            - name: subir web
+              uses: actions/upload-artifact@v4
+              with:
+                name: web-release
+                path: build/web/
+
             - name: Construccion APK
               run: flutter build apk --release
               
